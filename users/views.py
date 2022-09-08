@@ -81,3 +81,9 @@ def cria_receita(request):
         return redirect('dashboard')
     else:
         return render(request, 'users/cria_receita.html')
+
+
+def deleta_receita(request, receita_id):
+    receita = get_object_or_404(Receita, pk=receita_id)
+    receita.delete()
+    return redirect('dashboard')

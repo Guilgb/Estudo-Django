@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render, get_list_or_404
-from .models import Receita
+from .models import Pedidos, Receita
 from django.views.decorators.csrf import requires_csrf_token
 
 # Create your views here.
@@ -39,3 +39,12 @@ def buscar(request):
         'receitas': lista_receitas
     }
     return render(request, 'buscar.html', lista_dados)
+
+
+def pedidos(request, pedido_id):
+    template_name = 'pedidos.html'
+    carrinho = Pedidos.objects.filter(pk=pedido_id)
+
+    context = {'object_list': carrinho, }
+
+    return render(request, template_name, context)

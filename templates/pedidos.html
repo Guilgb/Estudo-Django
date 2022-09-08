@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block content %}
+    <!-- Preloader -->
+    <div id="preloader">
+        <i class="circle-preloader"></i>
+        <img src="{% static 'img/core-img/pizza.png' %}" alt="">
+    </div>
+
+    {% include 'partials/busca.html' %}
+    {% include 'partials/menu.html' %}
+
+    {% for object in object_list %}
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          {{ object.comida }}
+          <a href="" type="button" class="btn btn-primary btn-sm">Remover pedido</a>
+        </li>
+      </ul>
+    {% endfor %}
+    {% include 'partials/footer.html'%}
+{% endblock %}
