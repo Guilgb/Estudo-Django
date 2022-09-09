@@ -26,4 +26,5 @@ class Receita(models.Model):
 class Pedidos(models.Model):
     comida = models.ForeignKey(
         Receita, on_delete=models.CASCADE, related_name='pedidos')
-    preco_total = models.FloatField()
+    preco_total = models.DecimalField(max_digits=4, decimal_places=2)
+    pessoa = models.ForeignKey(User, on_delete=models.CASCADE)
