@@ -87,3 +87,27 @@ def deleta_receita(request, receita_id):
     receita = get_object_or_404(Receita, pk=receita_id)
     receita.delete()
     return redirect('dashboard')
+
+
+def edita_receita(request, receita_id):
+    receita = get_object_or_404(Receita, pk=receita_id)
+    receita_a_editar = {'receita': receita}
+    return render(request, 'users/edita_receita.html', receita_a_editar)
+
+
+def atualiza_receita(request):
+    if request.method == 'POST':
+        receita_id = request.POST['receita_id']
+        r = Receita.objects.get(pk=receita_id)
+        r.nome_receita = request.POST['nome_receita']
+        r.ingredientes = request.POST['ingredientes']
+        r.modo_de_preparo = request.POST['modo_de_preparo']
+        r.tempo_preparo = request.POST['tempo_preparo']
+        r.categoria = request.POST['categoria']
+        r.data_receita = request.POST['data_receita']
+        r. publicada = request.POST['publicada']
+        r.preco = request.POST['preco']
+        if 'foto_receita' in request.FILES:
+            r.foto_receita = request.FILES['foto_receita']
+        r.save()
+    return redirect('dashboard')

@@ -25,7 +25,8 @@
                         {% endif %}
                         <div class="receipe-content">
                             <a href="{% url 'receita'  receita.id %}"> 
-                                <h5> {{ receita.nome_receita }} </h5>
+                                <h5> {{ receita.nome_receita }} <p> Valor: {{receita.preco }} </p> </h5>
+
                                 <a href="" type="button" class="btn btn-success"> Comprar </a>
                             </a>
                         </div>
