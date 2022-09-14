@@ -7,5 +7,5 @@ from django.urls import path
 
 urlpatterns = [
     path("home_pedido", pedidos, name='pedido'),
-    path("compra", pedidos_update, name='compra')
+    path("update", pedidos_update, name='update')
 ]

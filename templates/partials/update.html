@@ -1,5 +1,5 @@
 {% load static %}
-<form mothod="POST" action="{ url 'pedido'}" class="form"> {% csrf_token %}
+<form mothod="POST" action="{% url 'update' %}" class="form"> {% csrf_token %}
     <input type="hidden" name="receita_id" id="receita.id" value="{{receita.id}}" />
 
         <button type="submit" class="btn btn-sucess"> Comprar </button>
