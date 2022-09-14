@@ -9,13 +9,14 @@
 
     {% include 'partials/busca.html' %}
     {% include 'partials/menu.html' %}
-    {% if pedidos %}
-    {% for pedido in pedidos %}
+    {% if pedidos.produtos %}
+    {% for pedido in pedidos.produtos.all %}
     <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          {{ pedido.nome_receita }}
+          {{ pedido.nome_receita }} <img src="{{pedido.foto_receita.url}}" alt="">
           <a href="" type="button" class="btn btn-primary btn-sm">Remover pedido</a>
         </li>
+        
       </ul>
     {% endfor %}
     {% endif %}

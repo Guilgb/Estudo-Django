@@ -7,7 +7,7 @@ from pedido.models import Pedidos
 
 def pedidos(request):
     pedido_obj, new_obj = Pedidos.objects.new_or_get(request)
-    return render(request, "pedidos.html", {"pedido": pedido_obj})
+    return render(request, "pedidos.html", {"pedidos": pedido_obj})
 
 
 def pedidos_update(request):
