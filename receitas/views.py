@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render, get_list_or_404
-from .models import Pedidos, Receita
+from .models import Receita
 from django.views.decorators.csrf import requires_csrf_token
 
 # Create your views here.

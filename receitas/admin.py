@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Receita, Pedidos
+from .models import Receita
 
 # Register your models here.
 
@@ -15,11 +15,3 @@ class ListandoReceitas(admin.ModelAdmin):
 
 
 admin.site.register(Receita, ListandoReceitas)
-
-
-class ListandoPedidos(admin.ModelAdmin):
-    list_display = ('id', )
-    list_display_links = ('id', )
-
-
-admin.site.register(Pedidos, ListandoPedidos)
