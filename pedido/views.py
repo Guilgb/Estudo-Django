@@ -5,22 +5,15 @@ from pedido.models import Pedidos
 # Create your views here.
 
 
-def pedidos(self, request):
-    pedido_obj = Pedidos.obj.new_or_get(request)
-    produtos = pedido_obj.produtos.all()
-    total = 0
-    for receita in produtos:
-        total += receita.preco
-    print(total)
-    pedido_obj.total = total
-    pedido_obj.save()
-    return render(request, "pedidos.html", {})
+def pedidos(request):
+    pedido_obj, new_obj = Pedidos.objects.new_or_get(request)
+    return render(request, "pedidos.html", {"pedido": pedido_obj})
 
 
 def pedidos_update(request):
     receita_id = 1
     receita_obj = Receita.objects.get(id=receita_id)
 
-    pedido_obj, new_obj = Pedidos.objects.new_oor_get(request)
+    pedido_obj, new_obj = Pedidos.objects.new_or_get(request)
     pedido_obj.receita.add(receita_obj)
     return redirect(receita_obj.get_absolute_url())
