@@ -112,8 +112,6 @@ def atualiza_receita(request):
         r.modo_de_preparo = request.POST['modo_de_preparo']
         r.tempo_preparo = request.POST['tempo_preparo']
         r.categoria = request.POST['categoria']
-        r.data_receita = request.POST['data_receita']
-        r. publicada = request.POST['publicada']
         r.preco = request.POST['preco']
         if 'foto_receita' in request.FILES:
             r.foto_receita = request.FILES['foto_receita']
