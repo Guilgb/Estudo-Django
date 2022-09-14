@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'receitas',
     'pessoas',
     'users',
+    'pedido',
 ]
 
 MIDDLEWARE = [

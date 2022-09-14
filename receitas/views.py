@@ -39,35 +39,3 @@ def buscar(request):
         'receitas': lista_receitas
     }
     return render(request, 'buscar.html', lista_dados)
-
-
-def pedidos(request):
-    template_name = 'pedidos.html'
-    carrinho = request.session.get("pedidos_id", None)
-
-    if carrinho is None:
-        print('Crie um Carrinho')
-        request.session['pedidos_id'] = 12
-    else:
-        print('Carrino existe')
-
-    def total(request):
-        pedidos_obj, new_obj = Pedidos.objects.new_or_get(request)
-        comidas = pedidos_obj.comidas.all()
-        total = 0
-        for comida in comidas:
-            total += comida.preco
-        print(total)
-        pedidos_obj.total = total
-        pedidos_obj.save()
-    return render(request, template_name, {})
-
-
-def list_produto(requst):
-    template = "pedidos.html"
-    pedido = Pedidos.objects.order_by('produtos')
-    context = {
-        'pedidos': pedido
-    }
-    print(context)
-    return render(requst, template, context)
